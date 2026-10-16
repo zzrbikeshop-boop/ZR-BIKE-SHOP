@@ -1,0 +1,4 @@
+.icon{flex:none}
+.ph{display:grid;place-items:center;color:#9db0c8}
+.btn,.cbtn,.ghost{display:inline-flex;align-items:center;justify-content:center;gap:.45rem}
+.x,.arrow,.qty button{display:grid;place-items:center;padding:0}

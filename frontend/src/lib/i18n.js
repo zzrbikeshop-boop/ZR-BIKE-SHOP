@@ -1,0 +1,28 @@
+export const dict = {
+  ar: { brand:'ZR Bike Shop', badge:'تسوق أونلاين', home:'الرئيسية', edit:'تعديل', cancel:'إلغاء', update:'حفظ التعديلات', editing:'تعديل المنتج', clearCart:'إفراغ السلة', remove:'إزالة', confirmDel:'هل أنت متأكد من الحذف نهائياً؟', replaceImgs:'رفع صور جديدة سيستبدل الصور الحالية.', f1:'توصيل إلى 58 ولاية', f2:'الدفع عند الاستلام', f3:'قطع غيار بجودة عالية', commune:'البلدية', communePh:'أدخل البلدية', deliveryMethod:'طريقة التوصيل', home:'التوصيل للمنزل', desk:'التوصيل لمكتب شركة التوصيل (Stop Desk)', subtotal:'مجموع المنتجات', fee:'رسوم التوصيل', orderTitle:'إتمام الطلب (الدفع عند الاستلام)', confirm:'تأكيد الطلب (الدفع عند الاستلام)', successT:'تم تأكيد طلبك بنجاح!', successM:'شكراً لتسوقك معنا. تم حفظ طلبك وسنتصل بك قريباً لتأكيد التوصيل (الدفع عند الاستلام).', descTitle:'وصف المنتج:', noDesc:'لا يوجد وصف متاح لهذا المنتج حالياً.', fullAddr:'العنوان التفصيلي', addrPh:'الشارع، الحي، رقم المنزل...', checkout:'إتمام الطلب', namePh:'أدخل اسمك الكامل', phoneBad:'رقم هاتف جزائري مثل 05XXXXXXXX', descr:'وصف المنتج', buy:'شراء', soldOut:'نفدت الكمية', quick:'روابط سريعة', contact:'تواصل معنا', rights:'جميع الحقوق محفوظة.', top:'العودة للأعلى', footDesc:'وجهتك لقطع غيار الدراجات الهوائية في الجزائر، بجودة عالية وأسعار مناسبة وتوصيل إلى 58 ولاية.', inStock:'متوفر في المخزون', new:'المنتجات الجديدة', sale:'التخفيضات', reviews:'آراء الزبائن',
+    cart:'السلة', lang:'English', dz:'DA', heroT:'قطع غيار الدراجات الهوائية',
+    heroS:'توصيل إلى 58 ولاية والدفع عند الاستلام', shop:'تسوق الآن', add:'أضف للسلة',
+    empty:'لا توجد منتجات بعد.', emptyCart:'سلتك فارغة. أضف منتجات من الأقسام.', total:'المجموع',
+    name:'الاسم الكامل', phone:'رقم الهاتف', wilaya:'الولاية', address:'العنوان', pick:'اختر الولاية',
+    order:'تأكيد الطلب', done:'تم استلام طلبك! سنتصل بك قريباً.', err:'تعذر إرسال الطلب، حاول مجدداً.',
+    follow:'تابعنا', delivery:'التوصيل متاح لـ 58 ولاية', admin:'لوحة التحكم', close:'إغلاق',
+    // dashboard
+    login:'تسجيل الدخول', email:'البريد الإلكتروني', pass:'كلمة المرور', logout:'خروج',
+    addProduct:'إضافة منتج', nameAr:'الاسم بالعربية', nameEn:'الاسم بالإنجليزية', price:'السعر',
+    oldPrice:'السعر قبل التخفيض (اختياري)', image:'الصورة', isNew:'منتج جديد', save:'حفظ المنتج',
+    orders:'الطلبيات', products:'المنتجات', status:'الحالة', del:'حذف', noOrders:'لا توجد طلبيات.',
+    st:{new:'جديد',confirmed:'مؤكد',shipped:'تم الشحن',delivered:'تم التسليم',cancelled:'ملغى'} },
+  en: { brand:'ZR Bike Shop', badge:'Shop online', home:'Home', edit:'Edit', cancel:'Cancel', update:'Save changes', editing:'Edit product', clearCart:'Clear cart', remove:'Remove', confirmDel:'Delete permanently? This cannot be undone.', replaceImgs:'Uploading new images replaces the current ones.', f1:'Delivery to 58 wilayas', f2:'Cash on delivery', f3:'Quality bike parts', commune:'Commune', communePh:'Enter your commune', deliveryMethod:'Delivery method', home:'Home delivery', desk:'Delivery company desk (Stop Desk)', subtotal:'Products total', fee:'Delivery fee', orderTitle:'Complete your order (cash on delivery)', confirm:'Confirm order (cash on delivery)', successT:'Your order is confirmed!', successM:'Thank you for shopping with us. Your order is saved and we will call you soon to confirm delivery (cash on delivery).', descTitle:'Product description:', noDesc:'No description available for this product yet.', fullAddr:'Full address', addrPh:'Street, neighborhood, house number...', checkout:'Checkout', namePh:'Enter your full name', phoneBad:'Algerian number like 05XXXXXXXX', descr:'Description', buy:'Buy', soldOut:'Out of stock', quick:'Quick links', contact:'Contact us', rights:'All rights reserved.', top:'Back to top', footDesc:'Your destination for bicycle parts in Algeria: good quality, fair prices and delivery to all 58 wilayas.', inStock:'In stock', new:'New Arrivals', sale:'Sale', reviews:'Customer Reviews',
+    cart:'Cart', lang:'العربية', dz:'DZD', heroT:'Bicycle parts & accessories',
+    heroS:'Delivery to all 58 wilayas · cash on delivery', shop:'Shop now', add:'Add to cart',
+    empty:'No products yet.', emptyCart:'Your cart is empty. Add products from the sections.', total:'Total',
+    name:'Full name', phone:'Phone number', wilaya:'Wilaya', address:'Address', pick:'Select wilaya',
+    order:'Place order', done:'Order received! We will call you soon.', err:'Could not send the order, try again.',
+    follow:'Follow us', delivery:'Delivery available to 58 wilayas', admin:'Dashboard', close:'Close',
+    login:'Sign in', email:'Email', pass:'Password', logout:'Sign out',
+    addProduct:'Add product', nameAr:'Name (Arabic)', nameEn:'Name (English)', price:'Price',
+    oldPrice:'Price before discount (optional)', image:'Image', isNew:'New product', save:'Save product',
+    orders:'Orders', products:'Products', status:'Status', del:'Delete', noOrders:'No orders yet.',
+    st:{new:'New',confirmed:'Confirmed',shipped:'Shipped',delivered:'Delivered',cancelled:'Cancelled'} }
+}
+export const wilayas = ['أدرار','الشلف','الأغواط','أم البواقي','باتنة','بجاية','بسكرة','بشار','البليدة','البويرة','تمنراست','تبسة','تلمسان','تيارت','تيزي وزو','الجزائر','الجلفة','جيجل','سطيف','سعيدة','سكيكدة','سيدي بلعباس','عنابة','قالمة','قسنطينة','المدية','مستغانم','المسيلة','معسكر','ورقلة','وهران','البيض','إليزي','برج بوعريريج','بومرداس','الطارف','تندوف','تيسمسيلت','الوادي','خنشلة','سوق أهراس','تيبازة','ميلة','عين الدفلى','النعامة','عين تموشنت','غرداية','غليزان','تيميمون','برج باجي مختار','أولاد جلال','بني عباس','عين صالح','عين قزام','تقرت','جانت','المغير','المنيعة'].map((n,i)=>`${String(i+1).padStart(2,'0')} - ${n}`)

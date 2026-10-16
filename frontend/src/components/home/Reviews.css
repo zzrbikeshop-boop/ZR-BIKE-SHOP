@@ -1,0 +1,8 @@
+.rev-wrap{overflow:hidden;direction:ltr;margin-inline:-5vw;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.rev-track{display:flex;width:max-content;animation:rev 70s linear infinite}
+.rev-wrap:hover .rev-track{animation-play-state:paused}
+.rev-track img{height:340px;width:auto;flex:none;margin-inline-end:1rem;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:zoom-in}
+@keyframes rev{to{transform:translateX(-50%)}}
+.zoom{display:block;max-width:100%;max-height:80vh;margin:1.6rem auto 0;border-radius:10px}
+@media (max-width:720px){.rev-track img{height:250px}.rev-wrap{margin-inline:-4vw}}
+@media (prefers-reduced-motion:reduce){.rev-wrap{overflow-x:auto}.rev-track{animation:none}}

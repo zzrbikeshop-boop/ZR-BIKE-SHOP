@@ -1,0 +1,11 @@
+.m-title{font-size:1.25rem;text-align:center;margin:.2rem 0 1rem}
+.checkout label{display:grid;gap:.3rem;font-weight:600}
+.checkout .radio{display:flex;align-items:center;gap:.6rem;border:1px solid var(--line);border-radius:var(--r);padding:.7rem 1rem;cursor:pointer}
+.checkout .radio.on{border-color:var(--blue);background:#eef5fd}
+.lbl{display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.chip{font-style:normal;font-size:.8rem;background:#e3edf8;border-radius:6px;padding:.05rem .5rem}
+.checkout fieldset{border:0;padding:0;display:grid;gap:.5rem}
+.checkout legend{font-weight:600;margin-bottom:.3rem}
+.summary{display:grid;gap:.3rem;border:1px dashed var(--line);border-radius:var(--r);padding:.8rem 1rem;background:var(--paper)}
+.summary p{display:flex;justify-content:space-between}
+.summary .grand{border-top:1px dashed var(--line);padding-top:.5rem;font-weight:800;font-size:1.15rem}

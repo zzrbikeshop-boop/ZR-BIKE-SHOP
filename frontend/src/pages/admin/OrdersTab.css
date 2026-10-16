@@ -1,0 +1,7 @@
+.order{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:#fff;border:1px solid var(--line);border-inline-start:6px solid var(--line);border-radius:var(--r);padding:1rem;margin-bottom:.8rem}
+.order.new{border-inline-start-color:var(--blue)}.order.delivered{border-inline-start-color:#2e8b57}
+.order.cancelled{border-inline-start-color:var(--red);opacity:.7}
+.order ul{padding-inline-start:1.2rem}
+.order-side{display:grid;gap:.5rem;align-content:start;min-width:150px}
+.order-side .ghost{width:100%}
+@media (max-width:720px){.order{flex-direction:column}.order-side{min-width:0}}
