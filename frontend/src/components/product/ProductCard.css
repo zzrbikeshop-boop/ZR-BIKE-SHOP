@@ -1,11 +1,227 @@
-.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(15,42,84,.14)}
-.card .img{position:relative;aspect-ratio:1;background:#e6edf6;display:grid;place-items:center;font-size:4rem;overflow:hidden}
-.card .img img{width:100%;height:100%;object-fit:cover}
-.card em{position:absolute;top:.7rem;inset-inline-start:.7rem;display:flex;align-items:center;gap:.3rem;background:var(--red);color:#fff;font-style:normal;font-weight:800;font-size:.9rem;padding:.2rem .7rem;border-radius:8px}
-.card-body{display:flex;flex-direction:column;gap:.5rem;flex:1;padding:1.2rem}
-.card-body h3{font-size:1.2rem;font-weight:800}
-.card-foot{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:.8rem;margin-top:auto;padding-top:.9rem;border-top:1px solid var(--line)}
-.card-btns{display:flex;gap:.5rem}
-.cbtn{background:var(--blue);color:#fff;border:0;border-radius:var(--r);padding:.6rem 1rem;font-weight:700;font-size:.95rem;cursor:pointer;white-space:nowrap}
-.cbtn.dark{background:var(--ink)}.cbtn:disabled{opacity:.4;cursor:not-allowed}
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(11, 25, 48, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(11, 25, 48, 0.1);
+  border-color: rgba(42, 127, 212, 0.3);
+}
+
+.card-img-wrapper {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #f4f7fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.card-img-wrapper .ph {
+  color: #94a3b8;
+}
+
+/* شارة التخفيضات */
+.sale-badge {
+  position: absolute;
+  top: 0.8rem;
+  inset-inline-start: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #ff4757;
+  color: #fff;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+}
+
+/* أزرار التنقل بين الصور داخل الكارت */
+.card-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(11, 25, 48, 0.6);
+  color: #fff;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.card-img-wrapper:hover .card-arrow {
+  opacity: 1;
+}
+
+.card-arrow.prev { inset-inline-start: 0.5rem; }
+.card-arrow.next { inset-inline-end: 0.5rem; }
+
+.card-arrow:hover {
+  background: rgba(11, 25, 48, 0.9);
+}
+
+/* محتوى الكارت */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+  padding: 1.2rem;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0b1930;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+}
+
+.stock {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.stock.in {
+  background: rgba(46, 213, 115, 0.1);
+  color: #2ed573;
+}
+
+.stock.out {
+  background: rgba(255, 71, 87, 0.1);
+  color: #ff4757;
+}
+
+/* أسفل الكارت (الأسعار والأزرار) */
+.card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(11, 25, 48, 0.05);
+  gap: 0.5rem;
+}
+
+.price-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.current-price {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0b1930;
+}
+
+.current-price small {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.old-price {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+/* الأزرار داخل الكارت */
+.card-btns {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.cbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  border: none;
+  border-radius: 999px; /* شكل دائري بيضاوي أنيق */
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.cbtn.primary {
+  background: var(--blue, #2a7fd4);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(42, 127, 212, 0.25);
+}
+
+.cbtn.primary:hover {
+  background: #236ab5;
+  transform: translateY(-1px);
+}
+
+.cbtn.dark {
+  background: #0b1930;
+  color: #fff;
+  padding: 0.5rem; /* زر السلة السريع */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.cbtn.dark:hover {
+  background: #1e355c;
+  transform: translateY(-1px);
+}
+
+.cbtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+@media (max-width: 560px) {
+  .card-body {
+    padding: 1rem;
+  }
+  .card-title {
+    font-size: 1rem;
+  }
+}

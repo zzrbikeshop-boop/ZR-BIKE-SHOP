@@ -1,12 +1,149 @@
-.footer{background:var(--ink);color:#fff;padding:3rem 5vw 1.2rem}
-.footer a{text-decoration:none}.footer a:hover{color:var(--amber)}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;max-width:1100px;margin:0 auto}
-.foot-brand{display:flex;align-items:center;gap:.7rem;font-size:1.3rem;margin-bottom:.8rem}
-.foot-desc{opacity:.8;max-width:36ch}
-.foot-col{display:flex;flex-direction:column;gap:.55rem}
-.foot-col h4{font-size:1.1rem;margin-bottom:.3rem}
-.foot-col a{opacity:.85}
-.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;max-width:1100px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.15);font-size:.9rem}
-.foot-bottom .ghost{color:#fff}
-@media (max-width:720px){.footer{padding:2rem 4vw 1rem}.foot-grid{grid-template-columns:1fr;gap:1.4rem}.foot-bottom{margin-top:1.4rem}}
-.foot-col a{display:flex;align-items:center;gap:.55rem}
+.footer {
+  background: #071120; /* لون خلفية داكن فخم ومتناسق مع النافبار */
+  color: #fff;
+  padding: 4.5rem 5vw 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.foot-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.foot-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.foot-brand .logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.foot-desc {
+  opacity: 0.75;
+  max-width: 38ch;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.foot-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.foot-col h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+.foot-col a {
+  text-decoration: none;
+  opacity: 0.8;
+  font-size: 0.92rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: fit-content;
+}
+
+.foot-col a:hover {
+  opacity: 1;
+  color: var(--blue, #2a7fd4);
+  transform: translateX(-3px);
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* القسم السفلي للفوتر */
+.foot-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 3.5rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* زر العودة للأعلى بتصميم دائري زجاجي متناسق */
+.foot-bottom .ghost {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.3s ease;
+}
+
+.foot-bottom .ghost:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* التجاوب مع الجوال والشاشات الصغيرة (تم توسيط كل المحتوى هنا) */
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 4vw 1.2rem;
+    text-align: center;
+  }
+  .foot-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    justify-items: center;
+  }
+  .foot-brand {
+    justify-content: center;
+  }
+  .foot-desc {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .foot-col {
+    align-items: center;
+    text-align: center;
+  }
+  .foot-col a {
+    width: auto;
+    justify-content: center;
+  }
+  .foot-col a:hover {
+    transform: none;
+  }
+  .foot-bottom {
+    margin-top: 2rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    align-items: center;
+  }
+}

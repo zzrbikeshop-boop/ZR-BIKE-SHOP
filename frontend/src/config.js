@@ -1,6 +1,6 @@
 export const INSTAGRAM = 'https://www.instagram.com/zr_bike_shop__/'
 export const FACEBOOK = 'https://www.facebook.com/' // TODO: shop's Facebook page link
-export const PHONE = '05 00 00 00 00' // TODO: shop phone number
+export const PHONE = '0542901073' // TODO: shop phone number
 
 // Page layout direction. It stays fixed when the language changes ('rtl' or 'ltr').
 export const LAYOUT_DIR = 'rtl'

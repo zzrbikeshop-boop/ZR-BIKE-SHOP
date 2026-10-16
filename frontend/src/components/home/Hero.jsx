@@ -15,9 +15,6 @@ export default function Hero() {
           <a className="btn outline" href="#sale">{t.sale}</a>
         </div>
       </div>
-      <ul className="hero-feats">
-        <li><Icon name="truck" size={18} /> {t.f1}</li><li><Icon name="cash" size={18} /> {t.f2}</li><li><Icon name="wrench" size={18} /> {t.f3}</li>
-      </ul>
     </section>
   )
 }

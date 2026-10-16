@@ -1,44 +1,54 @@
-import { useEffect, useState } from 'react'
-import { useApp } from '../../context/AppContext'
-import { REVIEWS_COUNT } from '../../config'
-import Modal from '../layout/Modal'
 import './Reviews.css'
 
-// returns the first existing file among N.jpg / N.png / N.webp, or null
-const find = n => new Promise(resolve => {
-  const exts = ['jpg', 'png', 'webp']
-  const next = k => {
-    if (k >= exts.length) return resolve(null)
-    const im = new Image(), url = `/reviews/${n}.${exts[k]}`
-    im.onload = () => resolve(url)
-    im.onerror = () => next(k + 1)
-    im.src = url
-  }
-  next(0)
-})
-
 export default function Reviews() {
-  const { t } = useApp()
-  const [imgs, setImgs] = useState([])
-  const [zoom, setZoom] = useState(null)
+  const reviewImages = [
+    "/reviews/in1.jpg",
+    "/reviews/in1(1).jpg",
+    "/reviews/in1(2).jpg",
+    "/reviews/in1(3).jpg",
+    "/reviews/in1(4).jpg",
+    "/reviews/in1(5).jpg",
+    "/reviews/in1(6).jpg",
+    "/reviews/in1(7).jpg",
+    "/reviews/in1(8).jpg",
+    "/reviews/in1(9).jpg",
+    "/reviews/in1(10).jpg",
+    "/reviews/in1(11).jpg",
+    "/reviews/in1(12).jpg",
+    "/reviews/in1(13).jpg",
+    "/reviews/in1(14).jpg",
+    "/reviews/in1(15).jpg",
+    "/reviews/in1(16).jpg",
+    "/reviews/in1(17).jpg",
+    "/reviews/in1(18).jpg",
+    "/reviews/in1(19).jpg",
+    "/reviews/in1(20).jpg"
+  ]
 
-  useEffect(() => {
-    let alive = true
-    Promise.all(Array.from({ length: REVIEWS_COUNT }, (_, i) => find(i + 1)))
-      .then(a => alive && setImgs(a.filter(Boolean)))
-    return () => { alive = false }
-  }, [])
+  // نكرر الصور مرتين لإنشاء حلقة متطابقة تماماً تعيد عرض نفسها بلا إنقطاع
+  const infiniteImages = [...reviewImages, ...reviewImages]
 
-  if (!imgs.length) return null
   return (
-    <section className="section reviews" id="reviews">
-      <h2>{t.reviews}</h2>
-      <div className="rev-wrap">
-        <div className="rev-track">
-          {[...imgs, ...imgs].map((u, i) => <img key={i} src={u} alt="" loading="lazy" onClick={() => setZoom(u)} />)}
+    <section className="reviews-section">
+      <div className="section-header">
+        <h2>آراء وثقة عملائنا الكرام</h2>
+        <p>نفتخر بثقتكم الغالية، وهذه تجارب وآراء زبائننا عبر الوطن في جودة دراجاتنا وقطع الغيار</p>
+      </div>
+
+      <div className="reviews-slider-container">
+        <div className="reviews-track">
+          {infiniteImages.map((imgSrc, index) => (
+            <div key={index} className="review-card">
+              <img 
+                src={imgSrc} 
+                alt={`رأي الزبون ${(index % reviewImages.length) + 1}`} 
+                loading="lazy"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+            </div>
+          ))}
         </div>
       </div>
-      {zoom && <Modal onClose={() => setZoom(null)}><img className="zoom" src={zoom} alt="" /></Modal>}
     </section>
   )
 }

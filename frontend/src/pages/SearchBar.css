@@ -1,0 +1,89 @@
+/* --- تصميم خانة البحث الاحترافية --- */
+.search-container {
+  max-width: 750px;
+  margin: 3rem auto 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.search-box-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px -6px rgba(11, 25, 48, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.5rem;
+}
+
+.search-box-wrapper:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 16px 40px -6px rgba(11, 25, 48, 0.09);
+}
+
+.search-box-wrapper:focus-within {
+  border-color: #2a7fd4;
+  box-shadow: 0 0 0 4px rgba(42, 127, 212, 0.12), 0 16px 40px -6px rgba(42, 127, 212, 0.12);
+  background: #ffffff;
+}
+
+.search-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: #f8fafc;
+  border-radius: 12px;
+  color: #64748b;
+  margin-inline-end: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.search-box-wrapper:focus-within .search-icon-box {
+  background: rgba(42, 127, 212, 0.1);
+  color: #2a7fd4;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #0b1930;
+  padding: 0.5rem 0.5rem;
+}
+
+.search-input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.search-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.clear-search-btn {
+  background: #f1f5f9;
+  border: none;
+  color: #64748b;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.clear-search-btn:hover {
+  background: #e2e8f0;
+  color: #0b1930;
+}

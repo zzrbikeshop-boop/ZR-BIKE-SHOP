@@ -1,8 +1,74 @@
-.rev-wrap{overflow:hidden;direction:ltr;margin-inline:-5vw;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-.rev-track{display:flex;width:max-content;animation:rev 70s linear infinite}
-.rev-wrap:hover .rev-track{animation-play-state:paused}
-.rev-track img{height:340px;width:auto;flex:none;margin-inline-end:1rem;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:zoom-in}
-@keyframes rev{to{transform:translateX(-50%)}}
-.zoom{display:block;max-width:100%;max-height:80vh;margin:1.6rem auto 0;border-radius:10px}
-@media (max-width:720px){.rev-track img{height:250px}.rev-wrap{margin-inline:-4vw}}
-@media (prefers-reduced-motion:reduce){.rev-wrap{overflow-x:auto}.rev-track{animation:none}}
+.reviews-section {
+  padding: 3rem 0;
+  background: #f8fafc;
+  margin: 2.5rem 0;
+  overflow: hidden;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.section-header h2 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #0b1930;
+  margin-bottom: 0.4rem;
+}
+
+.section-header p {
+  color: #475569;
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.reviews-slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+.reviews-track {
+  display: flex;
+  gap: 1.2rem;
+  width: max-content;
+  /* حركة مستمرة لا تنتهي أبداً وتدور بشكل دائرى */
+  animation: infiniteLoop 45s linear infinite;
+}
+
+/* إزالة أو ترك الإيقاف عند مرور الماوس - تركه مستمراً يضمن عدم توقف العرض */
+.reviews-slider-container:hover .reviews-track {
+  animation-play-state: paused;
+}
+
+.review-card {
+  width: 180px;
+  height: 260px;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(11, 25, 48, 0.1);
+  flex-shrink: 0;
+}
+
+.review-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* حركة الدوران اللانهائي: تتحرك بمقدار النصف تماماً ثم تعود للبداية بسلاسة بلا توقف */
+@keyframes infiniteLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

@@ -1,3 +1,71 @@
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
-#sale{background:#e3edf8}
-@media (max-width:560px){.grid{grid-template-columns:1fr;gap:1rem}}
+.section {
+  padding: 4rem 2rem;
+  max-width: 1850px; /* توسيع أقصى عرض للصفحة لتستوعب 4 كروت كبيرة براحة تامة */
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section h2 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #0b1930;
+  letter-spacing: -0.5px;
+}
+
+/* شبكة واسعة تعرض 4 كروت كبيرة في كل صف بدون تصغير حجم الكارت */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8rem; /* مسافات متوازنة تمنح الكروت حجماً كبيراً وبارزاً */
+}
+
+/* تنسيق خاص بقسم التخفيضات لإبرازه بشكل أنيق */
+#sale {
+  background: rgba(227, 237, 248, 0.4);
+  border-top: 1px solid rgba(11, 25, 48, 0.05);
+  border-bottom: 1px solid rgba(11, 25, 48, 0.05);
+}
+
+.muted {
+  color: #64748b;
+  font-size: 1rem;
+  text-align: center;
+  padding: 4rem 0;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+}
+
+/* التجاوب التلقائي مع الشاشات المختلفة */
+@media (max-width: 1350px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 950px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 2.5rem 1rem;
+  }
+  
+  .section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
