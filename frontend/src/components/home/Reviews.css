@@ -1,74 +1,142 @@
 .reviews-section {
-  padding: 3rem 0;
+  padding: 3rem 0 5rem 0; /* زيادة المساحة بالأسفل لتستوعب الانعكاس */
   background: #f8fafc;
   margin: 2.5rem 0;
   overflow: hidden;
 }
 
+/* إصلاح مشكلة العنوان وجعله في المنتصف تماماً */
 .section-header {
-  text-align: center;
-  margin-bottom: 2rem;
+  width: 100%; /* تأخذ العرض الكامل للقسم */
+  text-align: center; /* توسيط النص */
+  margin-bottom: 2.5rem;
   padding: 0 1rem;
+  display: block; /* استخدام block بدلاً من flex لتجنب تأثير الحاوية الأبوية */
+  clear: both; /* منع التداخل مع العناصر العائمة إن وجدت */
 }
 
 .section-header h2 {
   font-size: 1.7rem;
   font-weight: 800;
   color: #0b1930;
-  margin-bottom: 0.4rem;
+  margin: 0 auto; /* توسيط العنصر نفسه في حال كان له عرض محدد */
+  display: inline-block; /* لضمان استجابته لتوسيط الحاوية */
 }
 
-.section-header p {
-  color: #475569;
-  font-size: 1.05rem;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.reviews-slider-container {
-  width: 100%;
-  overflow: hidden;
+.coverflow-wrapper {
   position: relative;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.reviews-track {
+.coverflow-container {
+  position: relative;
+  width: 100%;
+  height: 400px; /* زيادة الارتفاع ليتسع لإطار الهاتف وانعكاسه */
   display: flex;
-  gap: 1.2rem;
-  width: max-content;
-  /* حركة مستمرة لا تنتهي أبداً وتدور بشكل دائرى */
-  animation: infiniteLoop 45s linear infinite;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px; 
 }
 
-/* إزالة أو ترك الإيقاف عند مرور الماوس - تركه مستمراً يضمن عدم توقف العرض */
-.reviews-slider-container:hover .reviews-track {
-  animation-play-state: paused;
+/* إطار الهاتف (Phone Mockup) */
+.phone-mockup {
+  position: absolute;
+  width: 220px;
+  height: 360px; /* الارتفاع المثالي لشاشة الجوال */
+  background: #0f172a; /* اللون الداكن لهيكل الهاتف */
+  border-radius: 36px; /* حواف دائرية جداً تشبه الهواتف الحديثة */
+  padding: 6px; /* المسافة التي تمثل حواف وإطار الهاتف */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 0 2px #334155; /* إطار خارجي وظل فخم */
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  
+  /* تأثير الانعكاس الزجاجي من الأسفل */
+  -webkit-box-reflect: below 5px linear-gradient(transparent, transparent 65%, rgba(255, 255, 255, 0.25));
 }
 
-.review-card {
-  width: 180px;
-  height: 260px;
-  background: #fff;
-  border-radius: 14px;
+/* تمييز الهاتف النشط */
+.phone-mockup.active {
+  box-shadow: 0 25px 50px rgba(11, 25, 48, 0.35), 0 0 0 3px #0b1930;
+}
+
+/* الكاميرا العلوية (النوتش) */
+.phone-notch-container {
+  width: 100%;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.phone-notch {
+  width: 50px;
+  height: 10px;
+  background: #0f172a;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* شاشة الهاتف الحاضنة للصورة */
+.phone-screen {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px; /* حواف دائرية داخلية تناسب إطار الهاتف */
   overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(11, 25, 48, 0.1);
-  flex-shrink: 0;
+  position: relative;
+  background: #f1f5f9;
 }
 
-.review-card img {
+.phone-screen img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* حركة الدوران اللانهائي: تتحرك بمقدار النصف تماماً ثم تعود للبداية بسلاسة بلا توقف */
-@keyframes infiniteLoop {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
+/* تنسيق أزرار التمرير (الأسهم) */
+.nav-btn {
+  background: #0b1930;
+  color: #ffffff;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 200;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(11, 25, 48, 0.2);
+}
+
+.nav-btn:hover {
+  background: #1e3a8a;
+  transform: scale(1.1);
+}
+
+.right-btn {
+  margin-left: 1rem;
+}
+
+.left-btn {
+  margin-right: 1rem;
+}
+
+@media (max-width: 600px) {
+  .nav-btn {
+    display: none;
   }
 }
