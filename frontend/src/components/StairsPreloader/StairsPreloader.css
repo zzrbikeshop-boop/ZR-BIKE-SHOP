@@ -1,0 +1,43 @@
+.preloader-container {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* شرائط الدرج المتحركة */
+.stairs-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+}
+
+.stair-step {
+  flex: 1;
+  height: 100%;
+  background: #050b14; /* لون خلفية المتجر الداكنة */
+  /* تم إزالة الخطوط الوردية الفاصلة نهائياً لتصبح الخلفية متصلة وناعمة */
+}
+
+/* النص الترحيبي في المنتصف فوق الشرائط */
+.preloader-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.preloader-brand-text {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 2px;
+  margin: 0;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}

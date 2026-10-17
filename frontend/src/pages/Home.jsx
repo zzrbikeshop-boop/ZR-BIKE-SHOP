@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+
 import { supabase } from '../lib/supabase'
 import { useApp } from '../context/AppContext'
 import Navbar from '../components/layout/Navbar'
@@ -12,6 +13,7 @@ import CartDrawer from '../components/cart/CartDrawer'
 import Checkout from '../components/cart/Checkout'
 import OrderSuccess from '../components/cart/OrderSuccess'
 import './SearchBar.css'
+
 
 export default function Home() {
   const { t, lang, view, setView, openCart, detail, closeDetail } = useApp()
@@ -110,6 +112,7 @@ export default function Home() {
         )}
 
         <Reviews />
+
       </main>
       <Footer />
       {detail && <ProductModal p={detail} onClose={closeDetail} />}
