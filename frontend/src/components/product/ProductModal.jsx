@@ -85,7 +85,30 @@ export default function ProductModal({ p, onClose }) {
             
             {/* ----- عرض المواصفات الإضافية بما في ذلك اللون ----- */}
             <div className="extra-specs">
-              {p.color && <div className="spec-item"><strong>اللون:</strong> <span>{p.color}</span></div>}
+              {/* التعديل المتفق عليه لخانة الألوان فقط */}
+              {p.color && (
+                <div className="spec-item" style={{ alignItems: 'flex-start' }}>
+                  <strong>{lang === 'en' ? 'Colors:' : 'الألوان:'}</strong> 
+                  <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', flex: 1 }}>
+                    {p.color.split(',').map((c, index) => (
+                      <span 
+                        key={index} 
+                        style={{
+                          backgroundColor: '#f1f5f9',
+                          color: '#0b1930',
+                          padding: '2px 8px',
+                          borderRadius: '4px',
+                          fontSize: '0.8rem',
+                          fontWeight: 'bold',
+                          border: '1px solid #e2e8f0'
+                        }}
+                      >
+                        {c.trim()}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
               {p.bike_brand && <div className="spec-item"><strong>الماركة:</strong> <span>{p.bike_brand}</span></div>}
               {p.frame_type && <div className="spec-item"><strong>نوع الدراجة:</strong> <span>{p.frame_type}</span></div>}
               {p.frame_material && <div className="spec-item"><strong>مادة الصنع:</strong> <span>{p.frame_material}</span></div>}

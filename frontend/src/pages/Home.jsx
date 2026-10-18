@@ -32,12 +32,8 @@ export default function Home() {
     return nameAr.toLowerCase().includes(query) || nameEn.toLowerCase().includes(query)
   })
 
-  // تصفية الدراجات فقط (التي تحتوي على كلمة دراجة أو bike في الاسم)
-  const bikeProducts = products.filter(p => {
-    const name = (p.name_ar || '') + ' ' + (p.name_en || '')
-    return name.toLowerCase().includes('دراجة') || name.toLowerCase().includes('bike')
-  })
-
+  /// تصفية الدراجات بناءً على تحديد خيار "دراجة كاملة" من لوحة التحكم
+  const bikeProducts = products.filter(p => p.is_bike)
   const close = () => setView('')
 
   return (
