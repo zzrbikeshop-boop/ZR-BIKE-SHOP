@@ -54,6 +54,7 @@
   }
 }
 
+/* ----- التعديل المتفق عليه لشاشات الجوال ----- */
 @media (max-width: 600px) {
   .section {
     padding: 2.5rem 1rem;
@@ -64,8 +65,45 @@
     margin-bottom: 1.2rem;
   }
 
+  /* تم تغيير الكلاس هنا لعرض كرتين */
   .grid {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 5px;
+  }
+
+  /* تصغير الكروت ومحتوياتها لتتناسب مع المساحة الجديدة */
+  .grid .card {
+    margin: 0;
+  }
+
+  .grid .card-body {
+    padding: 8px;
+  }
+
+  .grid .card-title {
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .grid .current-price {
+    font-size: 0.95rem;
+  }
+
+  .grid .old-price {
+    font-size: 0.75rem;
+  }
+
+  .grid .card-btns {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .grid .card-btns .cbtn {
+    width: 100%;
+    padding: 6px;
+    font-size: 0.8rem;
   }
 }
