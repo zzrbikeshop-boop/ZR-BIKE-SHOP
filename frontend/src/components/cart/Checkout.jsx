@@ -17,7 +17,8 @@ export default function Checkout({ onClose }) {
   async function submit(e) {
     e.preventDefault()
     setState('loading')
-    const items = cart.map(i => ({ id: i.id, name: i.name_ar, price: i.price, qty: i.qty }))
+    // التعديل هنا: إضافة حقل color مع كل منتج يُرسل إلى قاعدة البيانات
+    const items = cart.map(i => ({ id: i.id, name: i.name_ar, price: i.price, qty: i.qty, color: i.color || null }))
     const { error } = await supabase.from('orders').insert({ ...f, items, delivery_fee: fee, total: total + fee })
     if (error) return setState('err')
     clear(); setView('done')

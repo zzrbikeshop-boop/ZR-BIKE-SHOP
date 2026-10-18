@@ -61,7 +61,8 @@ export default function OrdersTab({ orders, onChange }) {
               <ul>
                 {o.items.map((i, k) => (
                   <li key={k}>
-                    <span className="item-name">• {i.name}</span>
+                    {/* التعديل هنا: إضافة اللون إذا كان موجوداً */}
+                    <span className="item-name">• {i.name} {i.color ? <strong style={{color: '#e11d48', marginRight: '5px'}}>(اللون: {i.color})</strong> : ''}</span>
                     <span className="item-qty">الكمية: {i.qty}</span>
                   </li>
                 ))}

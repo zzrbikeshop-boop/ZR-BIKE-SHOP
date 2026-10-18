@@ -5,7 +5,7 @@ import Modal from '../layout/Modal'
 import './ProductModal.css'
 import Icon from '../ui/Icon'
 
-// قاموس الألوان الذكي المحدث (يدعم الكلمات بالهمزة وبدون همزة)
+// قاموس الألوان الذكي المحدث
 const getColorHex = (name) => {
   const cleanName = name.toLowerCase().trim();
   const map = {
@@ -27,6 +27,30 @@ const getColorHex = (name) => {
     'بيج': '#f5f5dc', 'beige': '#f5f5dc'
   };
   return map[cleanName] || null;
+}
+
+// دالة ترجمة أسماء الألوان تلقائياً بحسب لغة الموقع
+const translateColor = (name, targetLang) => {
+  const cleanName = name.toLowerCase().trim();
+  const map = {
+    'أحمر': { en: 'Red', ar: 'أحمر' }, 'احمر': { en: 'Red', ar: 'أحمر' }, 'red': { en: 'Red', ar: 'أحمر' },
+    'أسود': { en: 'Black', ar: 'أسود' }, 'اسود': { en: 'Black', ar: 'أسود' }, 'black': { en: 'Black', ar: 'أسود' },
+    'أبيض': { en: 'White', ar: 'أبيض' }, 'ابيض': { en: 'White', ar: 'أبيض' }, 'white': { en: 'White', ar: 'أبيض' },
+    'أزرق': { en: 'Blue', ar: 'أزرق' }, 'ازرق': { en: 'Blue', ar: 'أزرق' }, 'blue': { en: 'Blue', ar: 'أزرق' },
+    'أخضر': { en: 'Green', ar: 'أخضر' }, 'اخضر': { en: 'Green', ar: 'أخضر' }, 'green': { en: 'Green', ar: 'أخضر' },
+    'أصفر': { en: 'Yellow', ar: 'أصفر' }, 'اصفر': { en: 'Yellow', ar: 'أصفر' }, 'yellow': { en: 'Yellow', ar: 'أصفر' },
+    'رمادي': { en: 'Gray', ar: 'رمادي' }, 'gray': { en: 'Gray', ar: 'رمادي' }, 'grey': { en: 'Gray', ar: 'رمادي' },
+    'فضي': { en: 'Silver', ar: 'فضي' }, 'silver': { en: 'Silver', ar: 'فضي' },
+    'ذهبي': { en: 'Gold', ar: 'ذهبي' }, 'gold': { en: 'Gold', ar: 'ذهبي' },
+    'برتقالي': { en: 'Orange', ar: 'برتقالي' }, 'orange': { en: 'Orange', ar: 'برتقالي' },
+    'وردي': { en: 'Pink', ar: 'وردي' }, 'زهري': { en: 'Pink', ar: 'وردي' }, 'pink': { en: 'Pink', ar: 'وردي' },
+    'بنفسجي': { en: 'Purple', ar: 'بنفسجي' }, 'purple': { en: 'Purple', ar: 'بنفسجي' },
+    'بني': { en: 'Brown', ar: 'بني' }, 'brown': { en: 'Brown', ar: 'بني' },
+    'كحلي': { en: 'Navy', ar: 'كحلي' }, 'navy': { en: 'Navy', ar: 'كحلي' },
+    'سماوي': { en: 'Sky Blue', ar: 'سماوي' }, 'cyan': { en: 'Sky Blue', ar: 'سماوي' },
+    'بيج': { en: 'Beige', ar: 'بيج' }, 'beige': { en: 'Beige', ar: 'بيج' }
+  };
+  return map[cleanName] ? map[cleanName][targetLang] : name;
 }
 
 export default function ProductModal({ p, onClose }) {
@@ -132,9 +156,10 @@ export default function ProductModal({ p, onClose }) {
                   </strong> 
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                     {p.color.split(',').map((c, index) => {
-                      const colorName = c.trim()
-                      const isSelected = selectedColor === colorName
-                      const hexColor = getColorHex(colorName)
+                      const rawColorName = c.trim()
+                      const colorName = translateColor(rawColorName, lang) // ترجمة اسم اللون تلقائياً
+                      const isSelected = selectedColor === colorName || selectedColor === rawColorName
+                      const hexColor = getColorHex(rawColorName)
 
                       return (
                         <button 

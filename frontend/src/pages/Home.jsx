@@ -21,6 +21,12 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('') // نص البحث
 
   useEffect(() => {
+    // إجبار المتصفح على الصعود لأعلى الصفحة فور تحديث الصفحة
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+    window.scrollTo(0, 0)
+
     supabase.from('products').select('*').order('created_at', { ascending: false }).then(r => setProducts(r.data || []))
   }, [])
 
@@ -32,7 +38,7 @@ export default function Home() {
     return nameAr.toLowerCase().includes(query) || nameEn.toLowerCase().includes(query)
   })
 
-  /// تصفية الدراجات بناءً على تحديد خيار "دراجة كاملة" من لوحة التحكم
+  // تصفية الدراجات بناءً على تحديد خيار "دراجة كاملة" من لوحة التحكم
   const bikeProducts = products.filter(p => p.is_bike)
   const close = () => setView('')
 
