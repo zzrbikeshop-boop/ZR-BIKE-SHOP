@@ -14,11 +14,10 @@ import Checkout from '../components/cart/Checkout'
 import OrderSuccess from '../components/cart/OrderSuccess'
 import './SearchBar.css'
 
-
 export default function Home() {
   const { t, lang, view, setView, openCart, detail, closeDetail } = useApp()
   const [products, setProducts] = useState([])
-  const [searchQuery, setSearchQuery] = useState('') // نص البحث
+  const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
     // إجبار المتصفح على الصعود لأعلى الصفحة فور تحديث الصفحة
@@ -48,7 +47,7 @@ export default function Home() {
       <main>
         <Hero />
 
-        {/* خانة البحث الاحترافية مع دعم تغيير اللغة تلقائياً */}
+        {/* خانة البحث الاحترافية متناسقة مع ثيم DARAJATI */}
         <div className="search-container">
           <div className="search-box-wrapper">
             <div className="search-icon-box">

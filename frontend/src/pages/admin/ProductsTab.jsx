@@ -20,6 +20,7 @@ export default function ProductsTab({ products, onChange }) {
     setForm({ name_ar: p.name_ar, name_en: p.name_en || '', price: p.price, old_price: p.old_price || '', is_new: !!p.is_new, in_stock: p.in_stock !== false, description: p.description || '' })
     scrollTo({ top: 0, behavior: 'smooth' })
   }
+  
   async function submit(e) {
     e.preventDefault(); setBusy(true)
     const images = []
@@ -38,6 +39,7 @@ export default function ProductsTab({ products, onChange }) {
     else await supabase.from('products').insert(row)
     cancelEdit(); setBusy(false); onChange()
   }
+  
   const remove = async id => {
     if (!confirm(t.confirmDel)) return
     await supabase.from('products').delete().eq('id', id); onChange()

@@ -1,7 +1,7 @@
-/* --- تصميم خانة البحث الاحترافية --- */
+/* حاوية البحث الرياضية الفاخرة */
 .search-container {
-  max-width: 750px;
-  margin: 3rem auto 2rem auto;
+  max-width: 850px;
+  margin: 2.5rem auto 1.5rem;
   padding: 0 1.5rem;
 }
 
@@ -9,81 +9,77 @@
   position: relative;
   display: flex;
   align-items: center;
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
+  background: #18181b; /* خلفية داكنة فاخرة متناسقة مع كروت المنتجات */
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
-  box-shadow: 0 12px 35px -6px rgba(11, 25, 48, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 0.5rem;
-}
-
-.search-box-wrapper:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 16px 40px -6px rgba(11, 25, 48, 0.09);
+  padding: 0.4rem 0.8rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .search-box-wrapper:focus-within {
-  border-color: #2a7fd4;
-  box-shadow: 0 0 0 4px rgba(42, 127, 212, 0.12), 0 16px 40px -6px rgba(42, 127, 212, 0.12);
-  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
 }
 
 .search-icon-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  background: #f8fafc;
-  border-radius: 12px;
-  color: #64748b;
-  margin-inline-end: 0.75rem;
-  transition: all 0.2s ease;
-}
-
-.search-box-wrapper:focus-within .search-icon-box {
-  background: rgba(42, 127, 212, 0.1);
-  color: #2a7fd4;
+  color: #a1a1aa;
+  padding: 0.5rem;
 }
 
 .search-input {
-  flex: 1;
-  border: none;
+  width: 100%;
   background: transparent;
+  border: none;
   outline: none;
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: #0b1930;
-  padding: 0.5rem 0.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.6rem 0.5rem;
 }
 
 .search-input::placeholder {
-  color: #94a3b8;
-  font-weight: 400;
+  color: #71717a;
+  font-weight: 500;
 }
 
 .search-actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
 }
 
 .clear-search-btn {
-  background: #f1f5f9;
-  border: none;
-  color: #64748b;
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #a1a1aa;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   transition: all 0.2s ease;
 }
 
 .clear-search-btn:hover {
-  background: #e2e8f0;
-  color: #0b1930;
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .search-container {
+    margin: 1.5rem auto 1rem;
+    padding: 0 1rem;
+  }
+  
+  .search-input {
+    font-size: 0.9rem;
+  }
 }

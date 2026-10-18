@@ -11,7 +11,7 @@ export default function Hero() {
         <h1>{t.heroT}</h1>
         <p>{t.heroS}</p>
         <div className="hero-cta">
-          <a className="btn" href="#new">{t.shop}</a>
+          <a className="btn btn-primary" href="#new">{t.shop}</a>
           <a className="btn outline" href="#sale">{t.sale}</a>
         </div>
       </div>

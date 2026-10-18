@@ -6,16 +6,13 @@ import Icon from '../ui/Icon'
 
 export default function ProductCard({ p }) {
   const { t, lang, add, buyNow, openDetail } = useApp()
-  // دعم كل من p.image_urls و p.images وصورة مفردة p.image_url
   const imgs = p.image_urls?.length ? p.image_urls : p.images?.length ? p.images : p.image_url ? [p.image_url] : []
   const [i, setI] = useState(0)
   const name = (lang === 'en' && p.name_en) || p.name_ar
   
-  // التحقق من وجود تخفيض وسعر قديم صالح
   const hasOldPrice = p.old_price && Number(p.old_price) > Number(p.price)
   const onSale = p.is_discounted || hasOldPrice
   
-  // تحديد قيمة السعر القديم
   const displayOldPrice = hasOldPrice 
     ? Number(p.old_price) 
     : (p.is_discounted ? Math.round(Number(p.price) * 1.25) : null)
@@ -24,7 +21,6 @@ export default function ProductCard({ p }) {
   const [L, R] = LAYOUT_DIR === 'rtl' ? ['chevR', 'chevL'] : ['chevL', 'chevR']
   const go = d => setI((i + d + imgs.length) % imgs.length)
 
-  // خاصية التبديل التلقائي بين الصور كل 3 ثوانٍ
   useEffect(() => {
     if (imgs.length <= 1) return
     const timer = setInterval(() => {
@@ -71,18 +67,16 @@ export default function ProductCard({ p }) {
         </div>
 
         <div className="card-foot">
-          {/* ----- التعديل هنا: إجبار السعر القديم على الظهور بشكل واضح ----- */}
           <div className="price-box" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             {displayOldPrice && (
-              <s className="old-price" style={{ color: '#94a3b8', fontSize: '0.85rem', textDecoration: 'line-through', marginBottom: '2px', display: 'block' }}>
+              <s className="old-price" style={{ color: '#a1a1aa', fontSize: '0.85rem', textDecoration: 'line-through', marginBottom: '2px', display: 'block' }}>
                 {displayOldPrice.toLocaleString()} {t?.dz || 'د.ج'}
               </s>
             )}
-            <strong className="current-price" style={{ color: '#3b82f6', fontSize: '1.2rem', display: 'block', lineHeight: '1' }}>
-              {Number(p.price).toLocaleString()} <small style={{ fontSize: '0.8rem' }}>{t?.dz || 'د.ج'}</small>
+            <strong className="current-price" style={{ color: '#ffffff', fontSize: '1.2rem', display: 'block', lineHeight: '1' }}>
+              {Number(p.price).toLocaleString()} <small style={{ fontSize: '0.8rem', color: '#a1a1aa' }}>{t?.dz || 'د.ج'}</small>
             </strong>
           </div>
-          {/* ----------------------------------------------------------- */}
 
           <div className="card-btns">
             <button className="cbtn dark" disabled={soldOut} onClick={e => { e.stopPropagation(); add(p) }} aria-label={t?.add || 'إضافة'}>

@@ -2,22 +2,23 @@
   display: grid;
   grid-template-columns: 1fr 240px;
   gap: 1.5rem;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: #18181b; /* خلفية داكنة */
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 1.5rem;
   margin-bottom: 1.25rem;
-  box-shadow: 0 4px 20px rgba(11, 25, 48, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   transition: all 0.25s ease;
   direction: rtl;
   text-align: right;
   position: relative;
   overflow: hidden;
+  color: #fff;
 }
 
 .order:hover {
-  box-shadow: 0 8px 25px rgba(11, 25, 48, 0.08);
-  border-color: #cbd5e1;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* مؤشر الحالة الجانبي الملون */
@@ -28,14 +29,15 @@
   top: 0;
   bottom: 0;
   width: 6px;
-  background: #cbd5e1;
+  background: #52525b;
 }
 
-.order.new::before { background: #2a7fd4; }
-.order.confirmed::before { background: #f59e0b; }
-.order.shipped::before { background: #8b5cf6; }
-.order.delivered::before { background: #10b981; }
-.order.cancelled::before { background: #ef4444; }
+/* ألوان حالات الطلب (تم جعلها أكثر إشراقاً لتبدو جيدة على خلفية داكنة) */
+.order.new::before { background: #3b82f6; }
+.order.confirmed::before { background: #fbbf24; }
+.order.shipped::before { background: #a855f7; }
+.order.delivered::before { background: #34d399; }
+.order.cancelled::before { background: #f87171; }
 
 /* تفاصيل الطلب */
 .order-details {
@@ -52,10 +54,10 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0.8rem;
-  background: #f8fafc;
+  background: #0a0a0a;
   padding: 0.8rem 1rem;
   border-radius: 12px;
-  border: 1px solid #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .customer-name-box {
@@ -63,13 +65,13 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 1.1rem;
-  color: #0b1930;
+  color: #fff;
   font-weight: 800;
 }
 
 .phone-btn {
-  background: rgba(42, 127, 212, 0.1);
-  color: #2a7fd4;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
   padding: 0.3rem 0.9rem;
   border-radius: 999px;
   font-size: 0.9rem;
@@ -79,7 +81,7 @@
 }
 
 .phone-btn:hover {
-  background: rgba(42, 127, 212, 0.2);
+  background: rgba(59, 130, 246, 0.25);
 }
 
 /* شبكة معلومات العميل (العنوان، التوصيل، التاريخ) */
@@ -90,10 +92,10 @@
 }
 
 .info-card {
-  background: #ffffff;
+  background: #0a0a0a;
   padding: 0.7rem 0.9rem;
   border-radius: 10px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
@@ -102,13 +104,13 @@
 .info-title {
   font-size: 0.78rem;
   font-weight: 700;
-  color: #64748b;
+  color: #a1a1aa;
 }
 
 .info-text {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #e4e4e7;
 }
 
 /* قائمة المنتجات المطلوبة */
@@ -121,7 +123,7 @@
 .items-title {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #475569;
+  color: #a1a1aa;
 }
 
 .order ul {
@@ -134,19 +136,19 @@
 }
 
 .order li {
-  background: #f8fafc;
+  background: #0a0a0a;
   padding: 0.5rem 0.8rem;
   border-radius: 8px;
   font-size: 0.88rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #e4e4e7;
   display: flex;
   justify-content: space-between;
-  border: 1px solid #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .item-qty {
-  color: #2a7fd4;
+  color: #60a5fa;
   font-weight: 700;
 }
 
@@ -155,10 +157,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #f8fafc;
+  background: #0a0a0a;
   padding: 1.2rem;
   border-radius: 12px;
-  border: 1px solid #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   gap: 1rem;
 }
 
@@ -171,11 +173,11 @@
 .order-price-info strong {
   font-size: 1.3rem;
   font-weight: 800;
-  color: #0b1930;
+  color: #fff;
 }
 
 .order-price-info small {
-  color: #64748b;
+  color: #a1a1aa;
   font-size: 0.8rem;
   font-weight: 600;
 }
@@ -184,17 +186,17 @@
   width: 100%;
   padding: 0.65rem;
   border-radius: 10px;
-  border: 1px solid #cbd5e1;
-  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #18181b;
   font-weight: 700;
   font-size: 0.9rem;
-  color: #0b1930;
+  color: #fff;
   cursor: pointer;
 }
 
 .order-side select:focus {
   outline: none;
-  border-color: #2a7fd4;
+  border-color: #60a5fa;
 }
 
 .order-side button {
@@ -204,17 +206,18 @@
   font-weight: 700;
   font-size: 0.85rem;
   cursor: pointer;
-  border: 1px solid #fecaca;
-  background: #fef2f2;
-  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
   text-align: center;
   transition: all 0.2s ease;
 }
 
 .order-side button:hover {
-  background: #dc2626;
+  background: #ef4444;
   color: #fff;
 }
+
 /* تصميم نافذة / كرت تأكيد الحذف الاحترافي */
 .delete-modal-overlay {
   position: fixed;
@@ -222,7 +225,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(11, 25, 48, 0.6);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(4px);
   display: grid;
   place-items: center;
@@ -231,13 +234,14 @@
 }
 
 .delete-modal-card {
-  background: #ffffff;
+  background: #18181b;
   padding: 2rem;
   border-radius: 20px;
   max-width: 400px;
   width: 90%;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -254,13 +258,13 @@
   margin: 0;
   font-size: 1.3rem;
   font-weight: 800;
-  color: #0b1930;
+  color: #fff;
 }
 
 .delete-modal-card p {
   margin: 0;
   font-size: 0.92rem;
-  color: #64748b;
+  color: #a1a1aa;
   line-height: 1.5;
 }
 
@@ -272,7 +276,7 @@
 
 .btn-confirm-del {
   flex: 1;
-  background: #dc2626;
+  background: #ef4444;
   color: #fff;
   border: none;
   padding: 0.75rem;
@@ -283,14 +287,14 @@
 }
 
 .btn-confirm-del:hover {
-  background: #b91c1c;
+  background: #dc2626;
 }
 
 .btn-cancel-del {
   flex: 1;
-  background: #f1f5f9;
-  color: #334155;
-  border: 1px solid #cbd5e1;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e4e4e7;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0.75rem;
   border-radius: 12px;
   font-weight: 700;
@@ -299,7 +303,7 @@
 }
 
 .btn-cancel-del:hover {
-  background: #e2e8f0;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 @keyframes fadeIn {
@@ -311,6 +315,7 @@
   from { transform: scale(0.95); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
+
 /* التجاوب مع الجوال */
 @media (max-width: 768px) {
   .order {

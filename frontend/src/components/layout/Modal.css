@@ -1,51 +1,67 @@
 .overlay.center {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5); /* عتمة خفيفة للخلفية */
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.75); /* خلفية معتمة فاخرة مع ضبابية عالية */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .modal {
   position: relative;
-  background: #050b21; /* خلفية بيضاء مطابقة لبطاقات الموقع */
-  color: #1e293b; /* لون نص داكن وواضح */
-  border: 1px solid #000000;
-  border-radius: 16px;
-  padding: 1.5rem;
-  width: min(480px, 100%);
-  max-height: 92vh;
+  background: #ffffff; /* خلفية بيضاء ناصعة تضمن وضوح القراءة للنماذج */
+  color: #0a0a0a; /* نصوص داكنة وواضحة جداً */
+  border: 1px solid #e4e4e7;
+  border-radius: 20px;
+  padding: 1.8rem;
+  width: min(500px, 100%);
+  max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .modal.wide {
-  width: min(900px, 100%);
+  width: min(920px, 100%);
 }
 
+/* زر الإغلاق الأنيق في زاوية النوافذ المنبثقة */
 .x {
   position: absolute;
-  top: 0.8rem;
-  inset-inline-start: 0.8rem;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 50%;
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
-  color: #64748b;
+  top: 1rem;
+  inset-inline-start: 1rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 12px;
+  border: 1px solid #e4e4e7;
+  background: #f4f4f5;
+  color: #18181b;
   cursor: pointer;
-  z-index: 2;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .x:hover {
-  background: #f1f5f9;
-  color: #0f172a;
+  background: #0a0a0a;
+  border-color: #0a0a0a;
+  color: #ffffff;
+  transform: scale(1.05);
 }

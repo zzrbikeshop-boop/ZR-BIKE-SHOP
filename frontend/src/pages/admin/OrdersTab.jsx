@@ -21,7 +21,7 @@ export default function OrdersTab({ orders, onChange }) {
     onChange()
   }
 
-  if (!orders.length) return <p className="muted">{t.noOrders}</p>
+  if (!orders.length) return <p className="muted" style={{color: '#a1a1aa'}}>{t.noOrders}</p>
 
   return (
     <>
@@ -62,7 +62,7 @@ export default function OrdersTab({ orders, onChange }) {
                 {o.items.map((i, k) => (
                   <li key={k}>
                     {/* التعديل هنا: إضافة اللون إذا كان موجوداً */}
-                    <span className="item-name">• {i.name} {i.color ? <strong style={{color: '#e11d48', marginRight: '5px'}}>(اللون: {i.color})</strong> : ''}</span>
+                    <span className="item-name">• {i.name} {i.color ? <strong style={{color: '#ef4444', marginRight: '5px'}}>(اللون: {i.color})</strong> : ''}</span>
                     <span className="item-qty">الكمية: {i.qty}</span>
                   </li>
                 ))}

@@ -1,1 +1,19 @@
-.login{max-width:360px;margin:15vh auto;display:grid;gap:.8rem}
+.login {
+  max-width: 380px;
+  margin: 15vh auto;
+  display: grid;
+  gap: 1.2rem;
+  background: #18181b;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.login h2 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  font-size: 1.5rem;
+}

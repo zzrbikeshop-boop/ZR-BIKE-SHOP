@@ -14,31 +14,35 @@
 .section h2 {
   font-size: 2.1rem;
   font-weight: 800;
-  color: #0b1930;
+  color: #0a0a0a;
   letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
 }
 
-/* شبكة واسعة تعرض 4 كروت كبيرة في كل صف بدون تصغير حجم الكارت */
+/* شبكة واسعة تعرض 4 كروت كبيرة في كل صف */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.8rem; /* مسافات متوازنة تمنح الكروت حجماً كبيراً وبارزاً */
+  gap: 1.8rem;
 }
 
-/* تنسيق خاص بقسم التخفيضات لإبرازه بشكل أنيق */
+/* تنسيق قسم التخفيضات الداكن الفاخر الجديد */
 #sale {
-  background: rgba(227, 237, 248, 0.4);
-  border-top: 1px solid rgba(11, 25, 48, 0.05);
-  border-bottom: 1px solid rgba(11, 25, 48, 0.05);
+  background: rgba(10, 10, 10, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .muted {
-  color: #64748b;
+  color: #71717a;
   font-size: 1rem;
   text-align: center;
   padding: 4rem 0;
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px dashed rgba(0, 0, 0, 0.12);
   border-radius: 12px;
+  font-weight: 600;
 }
 
 /* التجاوب التلقائي مع الشاشات المختلفة */
@@ -54,7 +58,7 @@
   }
 }
 
-/* ----- التعديل المتفق عليه لشاشات الجوال ----- */
+/* ----- التعديل المعتمد لشاشات الجوال (عرض كرتين في كل صف) ----- */
 @media (max-width: 600px) {
   .section {
     padding: 2.5rem 1rem;
@@ -65,14 +69,13 @@
     margin-bottom: 1.2rem;
   }
 
-  /* تم تغيير الكلاس هنا لعرض كرتين */
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
     padding: 5px;
   }
 
-  /* تصغير الكروت ومحتوياتها لتتناسب مع المساحة الجديدة */
+  /* تصغير الكروت ومحتوياتها لتتناسب مع المساحة */
   .grid .card {
     margin: 0;
   }

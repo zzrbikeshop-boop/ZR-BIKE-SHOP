@@ -21,8 +21,8 @@ export default function Navbar({ openCart }) {
   return (
     <header className="nav">
       <a href="#top" className="brand" onClick={closeMenu}>
-        <img className="logo" src="/logo.jpg" alt="" />
-        <span className="brand-t">ZR Bike</span>
+        <img className="logo" src="/logo.jpg" alt="Darajati" />
+        <span className="brand-t">DARAJATI</span>
       </a>
 
       {/* روابط التنقل */}

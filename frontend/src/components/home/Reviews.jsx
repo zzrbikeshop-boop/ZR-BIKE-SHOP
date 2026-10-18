@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
-// التعديل هنا: أضفنا ../ أخرى للرجوع خطوتين للخلف والوصول للملف الصحيح
 import { useApp } from '../../context/AppContext'; 
 import './Reviews.css';
 
 export default function Reviews() {
-  const { t, lang } = useApp(); // جلب اللغة الحالية
+  const { lang } = useApp();
 
   const reviewImages = [
-     "/reviews/in1(1).jpg", "/reviews/in1(2).jpg",
+    "/reviews/in1(1).jpg", "/reviews/in1(2).jpg",
     "/reviews/in1(3).jpg", "/reviews/in1(4).jpg", "/reviews/in1(5).jpg",
     "/reviews/in1(6).jpg", "/reviews/in1(7).jpg", "/reviews/in1(8).jpg",
     "/reviews/in1(9).jpg", "/reviews/in1(10).jpg", "/reviews/in1(11).jpg",
@@ -33,13 +32,11 @@ export default function Reviews() {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + reviewImages.length) % reviewImages.length);
   };
 
-  // تحديد النص بناءً على اللغة
   const reviewsTitle = lang === 'en' ? 'Our Customers Reviews' : 'آراء وثقة عملائنا';
 
   return (
     <section className="reviews-section">
       <div className="section-header">
-        {/* عرض العنوان المتوافق مع اللغة */}
         <h2>{reviewsTitle}</h2>
       </div>
 
@@ -72,12 +69,10 @@ export default function Reviews() {
                 }}
                 onClick={() => setCurrentIndex(index)}
               >
-                {/* الجزء العلوي للهاتف (الكاميرا / النوتش) */}
                 <div className="phone-notch-container">
                   <span className="phone-notch"></span>
                 </div>
 
-                {/* شاشة العرض وبها صورة الرأي */}
                 <div className="phone-screen">
                   <img 
                     src={imgSrc} 

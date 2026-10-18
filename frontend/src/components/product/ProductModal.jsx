@@ -150,14 +150,14 @@ export default function ProductModal({ p, onClose }) {
             
             <div className="extra-specs">
               {p.color && (
-                <div className="spec-item" style={{ alignItems: 'flex-start', flexDirection: 'column', background: '#f8fafc', padding: '12px', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                  <strong style={{ marginBottom: '8px', color: '#e11d48' }}>
+                <div className="spec-item" style={{ alignItems: 'flex-start', flexDirection: 'column', background: '#f4f4f5', padding: '12px', borderRadius: '10px', border: '1px solid #e4e4e7' }}>
+                  <strong style={{ marginBottom: '8px', color: '#ef4444' }}>
                     {lang === 'en' ? 'Select Color *' : 'اختر اللون المطلوب *'}
                   </strong> 
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                     {p.color.split(',').map((c, index) => {
                       const rawColorName = c.trim()
-                      const colorName = translateColor(rawColorName, lang) // ترجمة اسم اللون تلقائياً
+                      const colorName = translateColor(rawColorName, lang)
                       const isSelected = selectedColor === colorName || selectedColor === rawColorName
                       const hexColor = getColorHex(rawColorName)
 
@@ -170,16 +170,16 @@ export default function ProductModal({ p, onClose }) {
                             display: 'flex',
                             alignItems: 'center',
                             gap: '6px',
-                            backgroundColor: isSelected ? '#0b1930' : '#ffffff',
-                            color: isSelected ? '#ffffff' : '#0b1930',
+                            backgroundColor: isSelected ? '#0a0a0a' : '#ffffff',
+                            color: isSelected ? '#ffffff' : '#0a0a0a',
                             padding: '6px 14px',
                             borderRadius: '8px',
                             fontSize: '0.9rem',
                             fontWeight: 'bold',
-                            border: isSelected ? '2px solid #0b1930' : '2px solid #cbd5e1',
+                            border: isSelected ? '2px solid #0a0a0a' : '2px solid #e4e4e7',
                             cursor: 'pointer',
                             transition: 'all 0.2s ease',
-                            boxShadow: isSelected ? '0 4px 6px -1px rgba(11, 25, 48, 0.2)' : 'none'
+                            boxShadow: isSelected ? '0 4px 8px rgba(0, 0, 0, 0.15)' : 'none'
                           }}
                         >
                           {hexColor && (
@@ -189,7 +189,7 @@ export default function ProductModal({ p, onClose }) {
                               height: '14px',
                               borderRadius: '50%',
                               backgroundColor: hexColor,
-                              border: hexColor === '#ffffff' ? '1px solid #cbd5e1' : `1px solid ${hexColor}`,
+                              border: hexColor === '#ffffff' ? '1px solid #e4e4e7' : `1px solid ${hexColor}`,
                             }}></span>
                           )}
                           <span>{colorName}</span>

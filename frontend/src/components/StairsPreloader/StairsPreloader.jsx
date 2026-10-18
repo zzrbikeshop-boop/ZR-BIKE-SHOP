@@ -6,7 +6,7 @@ export default function StairsPreloader({ onComplete }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // مدة العرض (ثانية واحدة أو حسب رغبتك)
+    // مدة العرض
     const timer = setTimeout(() => {
       setLoading(false);
       if (onComplete) onComplete();
@@ -22,14 +22,14 @@ export default function StairsPreloader({ onComplete }) {
     <AnimatePresence>
       {loading && (
         <div className="preloader-container">
-          {/* اسم المتجر في المنتصف بخط فخم */}
+          {/* اسم المتجر بالهوية الجديدة DARAJATI */}
           <motion.div 
             className="preloader-content"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.2 } }}
           >
-            <h1 className="preloader-brand-text">ZR_BIKE_SHOPE</h1>
+            <h1 className="preloader-brand-text">DARAJATI</h1>
           </motion.div>
 
           {/* شرائط الكشف المتحركة (Stairs Effect) */}

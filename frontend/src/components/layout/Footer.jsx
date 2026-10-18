@@ -4,23 +4,23 @@ import './Footer.css'
 import Icon from '../ui/Icon'
 
 export default function Footer() {
-  const { t } = useApp()
+  const { t, lang } = useApp()
   return (
     <footer className="footer">
       <div className="foot-grid">
         <div className="foot-info">
           <div className="foot-brand">
-            <img className="logo" src="/logo.jpg" alt="ZR Bike Shop" />
-            <strong>ZR Bike Shop</strong>
+            <img className="logo" src="/logo.jpg" alt="DARAJATI" />
+            <strong>DARAJATI</strong>
           </div>
           <p className="foot-desc">{t.footDesc}</p>
         </div>
 
         <div className="foot-col">
           <h4>{t.quick}</h4>
+          <a href="#bikes">{lang === 'en' ? 'Bikes' : 'الدراجات'}</a>
           <a href="#new">{t.new}</a>
           <a href="#sale">{t.sale}</a>
-          <a href="#reviews">{t.reviews}</a>
         </div>
 
         <div className="foot-col">
@@ -29,14 +29,13 @@ export default function Footer() {
             <Icon name="phone" size={16} /> <span>{PHONE}</span>
           </a>
           <a href={INSTAGRAM} target="_blank" rel="noreferrer" className="contact-link">
-            <Icon name="instagram" size={16} /> <span>@zr_bike_shop__</span>
+            <Icon name="instagram" size={16} /> <span>@darajati_oumelbouaghi</span>
           </a>
-          
         </div>
       </div>
 
       <div className="foot-bottom">
-        <span>© 2026 ZR Bike Shop. {t.rights}</span>
+        <span>© {new Date().getFullYear()} DARAJATI. {t.rights}</span>
         <button className="ghost" onClick={() => scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Scroll to top">
           <Icon name="arrowUp" size={16} /> {t.top}
         </button>
