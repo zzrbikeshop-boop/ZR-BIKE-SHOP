@@ -29,7 +29,7 @@ export default function Footer() {
             <Icon name="phone" size={16} /> <span>{PHONE}</span>
           </a>
           <a href={INSTAGRAM} target="_blank" rel="noreferrer" className="contact-link">
-            <Icon name="instagram" size={16} /> <span>@darajati_oumelbouaghi</span>
+            <Icon name="instagram" size={16} /> <span>@darajati_</span>
           </a>
         </div>
       </div>

@@ -6,7 +6,7 @@ export default function WhatsAppButton() {
   const [message, setMessage] = useState(''); // حالة لتخزين رسالة الزبون
   
   // ضع رقم هاتفك هنا (بعد 213 بدون الصفر الأول)
-  const phoneNumber = "2130542901073"; // استبدل هذا بالرقم الفعلي
+  const phoneNumber = "2130697762181"; // استبدل هذا بالرقم الفعلي
   const defaultMessage = "مرحباً، أريد الاستفسار عن منتجات متجر ZR Bike";
   
   // دالة الإرسال: تأخذ النص المكتوب أو النص الافتراضي وتفتح واتساب
@@ -37,9 +37,9 @@ export default function WhatsAppButton() {
         {/* رأس النافذة */}
         <div className="chat-header">
           <div className="header-info">
-            <img src="/logo.jpg" alt="ZR Bike" className="chat-avatar" />
+            <img src="/logo.jpg" alt="DARAJATI" className="chat-avatar" />
             <div>
-              <h4>ZR Bike Shop</h4>
+              <h4>DARAJATI</h4>
               <p>عادة ما نرد خلال دقائق</p>
             </div>
           </div>
@@ -49,7 +49,7 @@ export default function WhatsAppButton() {
         {/* جسم النافذة (مساحة الرسائل) */}
         <div className="chat-body">
           <div className="chat-message">
-            مرحباً بك في متجر ZR Bike! 🚴‍♂️<br />
+            مرحباً بك في متجر DARAJATI! 🚴‍♂️<br />
             اكتب استفسارك بالأسفل وسنرد عليك عبر الواتساب فوراً.
             <span className="msg-time">{currentTime}</span>
           </div>
