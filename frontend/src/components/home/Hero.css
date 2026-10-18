@@ -16,7 +16,7 @@
   100% { box-shadow: 0 0 12px rgba(255, 255, 255, 0.3), 0 0 25px rgba(255, 255, 255, 0.1); }
 }
 
-/* خلفية القسم الفاخرة بأسلوب الأسود الرياضي والأبيض */
+/* خلفية لونية فاخرة وخالية من الصور تماماً */
 .hero {
   position: relative;
   display: flex;
@@ -29,44 +29,10 @@
   min-height: 100svh;
   padding: 7rem 6vw 3rem;
   color: #ffffff;
-  overflow: hidden;
-}
-
-/* حاوية الخلفية المتجاوبة */
-.hero-bg-wrapper {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.hero-bg-img {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-}
-
-/* التدرج الداكن فوق الصور لضمان وضوح النصوص */
-.hero-bg-wrapper::after {
-  content: '';
-  position: absolute;
-  inset: 0;
   background: 
-    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 65%),
-    linear-gradient(135deg, rgba(10, 10, 10, 0.6), rgba(20, 20, 20, 0.7));
-  z-index: 2;
-}
-
-/* صورة الحاسوب الافتراضية */
-.hero-desktop-img {
-  background-image: url(/hero.jpg);
-  display: block;
-}
-
-/* صورة الجوال (مخفية افتراضياً وتظهر في الشاشات الصغيرة) */
-.hero-mobile-img {
-  background-image: url(/hero-mobile.jpg);
-  display: none;
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+    linear-gradient(180deg, #121215 0%, #08080a 50%, #020203 100%);
+  overflow: hidden;
 }
 
 .hero-inner {
@@ -75,8 +41,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  z-index: 3; 
+  z-index: 2;
+}
+
+.hero-inner {
+  max-width: 850px;
+  margin-block: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
 }
 
 /* الشارة الزجاجية العلوية بأسلوب DARAJATI */
@@ -86,16 +60,16 @@
   gap: 0.5rem;
   margin-bottom: 1.5rem;
   padding: 0.5rem 1.4rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.5px;
   color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* العنوان بنمط أبيض وفضي ناصع */
@@ -105,20 +79,19 @@
   line-height: 1.15;
   margin-bottom: 1.5rem;
   letter-spacing: -1px;
-  background: linear-gradient(to bottom, #ffffff, #fefeff, #f7f7f7);
+  background: linear-gradient(to bottom, #ffffff, #e4e4e7, #a1a1aa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.9));
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.8));
 }
 
 .hero p {
   max-width: 650px;
   font-size: clamp(1.1rem, 2vw, 1.35rem);
-  color: #f4f4f5; 
+  color: #a1a1aa; 
   line-height: 1.7;
   margin-bottom: 2.5rem;
   font-weight: 500;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.9);
 }
 
 /* الحاوية الجامعة للأزرار */
@@ -161,8 +134,8 @@
 
 /* زر التصفح الشفاف الزجاجي */
 .hero-cta .btn.outline {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: #ffffff;
@@ -171,60 +144,14 @@
 
 .hero-cta .btn.outline:hover {
   background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-4px);
   color: #ffffff;
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
 }
 
-/* مميزات المتجر السفلية */
-.hero-feats {
-  list-style: none;
-  padding: 0;
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  justify-content: center;
-  animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-  opacity: 0;
-  z-index: 3;
-}
-
-.hero-feats li {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: 16px; 
-  padding: 0.8rem 1.5rem;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  transition: all 0.4s ease;
-  cursor: default;
-}
-
-.hero-feats li:hover {
-  transform: translateY(-5px);
-  background: rgba(20, 20, 20, 0.8);
-  border-color: rgba(255, 255, 255, 0.5); 
-  color: #ffffff; 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.1);
-}
-
-/* التبديل التلقائي لصورة الجوال في الشاشات الصغيرة */
-@media (max-width: 768px) {
-  .hero-desktop-img {
-    display: none;
-  }
-  .hero-mobile-img {
-    display: block;
-  }
-
+/* التوافق مع الشاشات الصغيرة */
+@media (max-width: 720px) {
   .hero {
     padding: 6rem 5vw 3rem;
     gap: 1.5rem;
@@ -232,10 +159,5 @@
   
   .hero h1 {
     font-size: clamp(2.2rem, 8vw, 3rem);
-  }
-  
-  .hero-feats li {
-    font-size: 0.85rem;
-    padding: 0.6rem 1.2rem;
   }
 }

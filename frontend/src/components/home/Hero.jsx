@@ -6,12 +6,6 @@ export default function Hero() {
   const { t } = useApp()
   return (
     <section className="hero" id="top">
-      {/* حاوية صور الخلفية المتجاوبة (حاسوب وجوال) */}
-      <div className="hero-bg-wrapper">
-        <div className="hero-bg-img hero-desktop-img"></div>
-        <div className="hero-bg-img hero-mobile-img"></div>
-      </div>
-
       <div className="hero-inner">
         <span className="hero-badge"><Icon name="bike" size={16} /> {t.badge}</span>
         <h1>{t.heroT}</h1>
