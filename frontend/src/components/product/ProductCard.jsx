@@ -58,34 +58,36 @@ export default function ProductCard({ p }) {
       </div>
 
       <div className="card-body">
-        <h3 className="card-title">{name}</h3>
-        
-        <div className="card-meta">
-          <span className={soldOut ? 'stock out' : 'stock in'}>
-            {soldOut ? (t?.soldOut || 'نفذت الكمية') : (t?.inStock || 'متوفر في المخزون')}
-          </span>
-        </div>
-
-        <div className="card-foot">
-          <div className="price-box" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        {/* التنظيم الجديد 1: السعر والمخزون في الصف العلوي */}
+        <div className="card-top-row">
+          <div className="price-group">
+            <strong className="current-price">
+              {Number(p.price).toLocaleString()} <small>{t?.dz || 'د.ج'}</small>
+            </strong>
             {displayOldPrice && (
-              <s className="old-price" style={{ color: '#a1a1aa', fontSize: '0.85rem', textDecoration: 'line-through', marginBottom: '2px', display: 'block' }}>
+              <s className="old-price">
                 {displayOldPrice.toLocaleString()} {t?.dz || 'د.ج'}
               </s>
             )}
-            <strong className="current-price" style={{ color: '#ffffff', fontSize: '1.2rem', display: 'block', lineHeight: '1' }}>
-              {Number(p.price).toLocaleString()} <small style={{ fontSize: '0.8rem', color: '#a1a1aa' }}>{t?.dz || 'د.ج'}</small>
-            </strong>
           </div>
+          
+          <div className={`stock-indicator ${soldOut ? 'out' : 'in'}`} title={soldOut ? (t?.soldOut || 'نفذت الكمية') : (t?.inStock || 'متوفر')}>
+            <span className="dot"></span>
+            <span className="stock-txt">{soldOut ? (t?.soldOut || 'نفذ') : (t?.inStock || 'متوفر')}</span>
+          </div>
+        </div>
 
-          <div className="card-btns">
-            <button className="cbtn dark" disabled={soldOut} onClick={e => { e.stopPropagation(); add(p) }} aria-label={t?.add || 'إضافة'}>
-              <Icon name="bag" size={16} />
-            </button>
-            <button className="cbtn primary" disabled={soldOut} onClick={e => { e.stopPropagation(); buyNow(p) }}>
-              <Icon name="zap" size={15} /> {t?.buy || 'شراء'}
-            </button>
-          </div>
+        {/* التنظيم الجديد 2: العنوان في المنتصف للتركيز عليه */}
+        <h3 className="card-title">{name}</h3>
+
+        {/* التنظيم الجديد 3: الأزرار في الأسفل بتوزيع ذكي */}
+        <div className="card-actions">
+          <button className="cbtn dark" disabled={soldOut} onClick={e => { e.stopPropagation(); add(p) }} aria-label={t?.add || 'إضافة للسلة'}>
+            <Icon name="bag" size={18} />
+          </button>
+          <button className="cbtn primary" disabled={soldOut} onClick={e => { e.stopPropagation(); buyNow(p) }}>
+            <Icon name="zap" size={16} /> {t?.buy || 'شراء الآن'}
+          </button>
         </div>
       </div>
     </article>

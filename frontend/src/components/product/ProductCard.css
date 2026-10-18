@@ -1,65 +1,67 @@
-/* تصميم الكرت بأسلوب DARAJATI الداكن الفاخر */
+/* تصميم كروت درجاتي - الشكل الرياضي الديناميكي السريع */
 .card {
   display: flex;
   flex-direction: column;
-  background: #18181b; /* خلفية داكنة فاخرة */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 18px;
+  background: linear-gradient(145deg, #18181b, #09090b);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 28px 4px 28px 4px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  position: relative;
 }
 
-/* تأثير التمرير والأناقة */
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .card-img-wrapper {
   position: relative;
   aspect-ratio: 4 / 3;
-  background: #09090b;
+  background: #050505;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 2px solid #ef4444;
 }
 
 .card-img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease;
 }
 
 .card:hover .card-img-wrapper img {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 .card-img-wrapper .ph {
-  color: #52525b;
+  color: #3f3f46;
 }
 
-/* شارة التخفيضات الرياضية باللون الأحمر */
+/* شارة التخفيضات أصبحت صغيرة وناعمة ولا تغطي الصورة */
 .sale-badge {
   position: absolute;
-  top: 0.8rem;
-  inset-inline-start: 0.8rem;
+  top: 8px;
+  inset-inline-start: 8px;
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  background: #ef4444;
+  gap: 0.2rem;
+  background: rgba(239, 68, 68, 0.9);
+  backdrop-filter: blur(4px);
   color: #ffffff;
   font-style: normal;
-  font-weight: 800;
-  font-size: 0.78rem;
-  padding: 0.3rem 0.75rem;
-  border-radius: 999px;
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  z-index: 2;
 }
 
 /* أزرار التنقل بين الصور */
@@ -80,6 +82,7 @@
   opacity: 0;
   transition: all 0.3s ease;
   backdrop-filter: blur(4px);
+  z-index: 2;
 }
 
 .card-img-wrapper:hover .card-arrow {
@@ -95,14 +98,72 @@
   border-color: #ffffff;
 }
 
-/* محتوى الكارت */
+/* المحتوى الداخلي للكارت */
 .card-body {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.6rem;
   flex: 1;
   padding: 1.25rem;
 }
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.price-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.current-price {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.current-price small {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  margin-inline-start: 2px;
+}
+
+.old-price {
+  font-size: 0.85rem;
+  color: #71717a;
+  text-decoration: line-through;
+  margin-top: 0.2rem;
+  font-weight: 600;
+}
+
+.stock-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stock-indicator .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.stock-indicator.in { color: #4ade80; }
+.stock-indicator.in .dot { background: #4ade80; box-shadow: 0 0 8px rgba(74, 222, 128, 0.6); }
+
+.stock-indicator.out { color: #f87171; }
+.stock-indicator.out .dot { background: #f87171; box-shadow: 0 0 8px rgba(248, 113, 113, 0.6); }
 
 .card-title {
   font-size: 1.05rem;
@@ -112,72 +173,15 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.45;
+  line-height: 1.5;
+  margin-bottom: auto;
+  min-height: 3rem;
 }
 
-.card-meta {
+.card-actions {
   display: flex;
-  align-items: center;
-}
-
-.stock {
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.2rem 0.6rem;
-  border-radius: 6px;
-}
-
-.stock.in {
-  background: rgba(34, 197, 94, 0.15);
-  color: #4ade80;
-  border: 1px solid rgba(34, 197, 94, 0.3);
-}
-
-.stock.out {
-  background: rgba(239, 68, 68, 0.15);
-  color: #f87171;
-  border: 1px solid rgba(239, 68, 68, 0.3);
-}
-
-/* أسفل الكارت */
-.card-foot {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-top: auto;
-  padding-top: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  gap: 0.5rem;
-}
-
-.price-box {
-  display: flex;
-  flex-direction: column;
-}
-
-.current-price {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #ffffff;
-}
-
-.current-price small {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #a1a1aa;
-}
-
-.old-price {
-  font-size: 0.85rem;
-  color: #71717a;
-  text-decoration: line-through;
-  margin-bottom: 0.1rem;
-}
-
-/* الأزرار داخل الكارت */
-.card-btns {
-  display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
 }
 
 .cbtn {
@@ -186,8 +190,8 @@
   justify-content: center;
   gap: 0.4rem;
   border: none;
-  border-radius: 10px;
-  padding: 0.6rem 1rem;
+  border-radius: 12px 3px 12px 3px;
+  padding: 0.75rem 1rem;
   font-weight: 800;
   font-size: 0.85rem;
   cursor: pointer;
@@ -196,31 +200,34 @@
 }
 
 .cbtn.primary {
+  flex: 1;
   background: #ffffff;
   color: #0a0a0a;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 
 .cbtn.primary:hover {
-  background: #f4f4f5;
+  background: #ef4444;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.3);
 }
 
 .cbtn.dark {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
-  padding: 0.6rem;
-  width: 38px;
-  height: 38px;
+  padding: 0;
+  width: 44px;
+  height: 44px;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .cbtn.dark:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
+  color: #ef4444;
 }
 
 .cbtn:disabled {
@@ -230,11 +237,49 @@
   box-shadow: none;
 }
 
-@media (max-width: 560px) {
+/* التجاوب مع الجوال */
+@media (max-width: 600px) {
   .card-body {
-    padding: 0.9rem;
+    padding: 0.8rem;
+    gap: 0.5rem;
+  }
+  .current-price {
+    font-size: 1.15rem;
+  }
+  .old-price {
+    font-size: 0.75rem;
   }
   .card-title {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    min-height: 2.7rem;
+  }
+  .cbtn {
+    border-radius: 8px 2px 8px 2px;
+  }
+  .card-actions {
+    flex-direction: row;
+    gap: 0.4rem;
+  }
+  .cbtn.primary {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+  .cbtn.dark {
+    width: 36px;
+    height: 36px;
+  }
+  .stock-indicator .stock-txt {
+    display: none;
+  }
+  .stock-indicator {
+    padding: 0.2rem 0.3rem;
+    background: transparent;
+    border: none;
+  }
+  .sale-badge {
+    top: 6px;
+    inset-inline-start: 6px;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.65rem;
   }
 }
