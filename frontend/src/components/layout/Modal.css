@@ -1,5 +1,51 @@
-.overlay.center{justify-content:center;align-items:center;padding:1rem}
-.modal{position:relative;background:#fff;border-radius:16px;padding:1.5rem;width:min(480px,100%);max-height:92vh;overflow:auto}
-.modal.wide{width:min(900px,100%)}
-.x{position:absolute;top:.8rem;inset-inline-start:.8rem;width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;z-index:2}
-@media (max-width:720px){.modal{padding:1.1rem}}
+.overlay.center {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* عتمة خفيفة للخلفية */
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  background: #050b21; /* خلفية بيضاء مطابقة لبطاقات الموقع */
+  color: #1e293b; /* لون نص داكن وواضح */
+  border: 1px solid #000000;
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: min(480px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modal.wide {
+  width: min(900px, 100%);
+}
+
+.x {
+  position: absolute;
+  top: 0.8rem;
+  inset-inline-start: 0.8rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #64748b;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.x:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}

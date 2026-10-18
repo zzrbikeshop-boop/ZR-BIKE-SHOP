@@ -1,14 +1,214 @@
-.detail{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;padding-top:1.6rem}
-.gal-main{position:relative;aspect-ratio:4/3;background:#e6edf6;border-radius:var(--r);overflow:hidden;display:grid;place-items:center;font-size:4rem}
-.gal-main img{width:100%;height:100%;object-fit:cover}
-.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.5rem}
-.thumbs button{padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;background:none}
-.thumbs button.on{border-color:var(--blue)}
-.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
-.info{display:flex;flex-direction:column;gap:.7rem}
-.info h2{font-size:1.6rem;font-weight:800;line-height:1.3}
-.price.big strong{font-size:1.9rem}
-.desc{border:1px solid var(--line);border-radius:var(--r);padding:.8rem 1rem}
-.desc h4{margin-bottom:.3rem}.desc p{color:var(--muted);white-space:pre-line}
-.detail-btns{display:flex;gap:.6rem;margin-top:auto}.detail-btns .btn{flex:1}
-@media (max-width:720px){.detail{grid-template-columns:1fr}}
+.detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+  padding-top: 0.5rem;
+}
+
+/* تنسيق إطار الصورة الرئيسية ليكون متطابقاً مع كرت المنتجات */
+.gal-main {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: #1e2530;
+  border-radius: 12px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.gal-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* الأسهم الدائرية العائمة بتصميم متناسق مع الموقع */
+.gal-main .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.75);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+}
+
+.gal-main .arrow:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.gal-main .arrow.prev { inset-inline-start: 12px; }
+.gal-main .arrow.next { inset-inline-end: 12px; }
+
+/* الصور المصغرة بالأسفل */
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.thumbs button {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  background: none;
+  transition: all 0.2s;
+}
+
+.thumbs button.on {
+  border-color: #3b82f6;
+}
+
+.thumbs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* تنسيق قسم المعلومات والأسعار والنصوص */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.info h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+/* حالة المخزون متطابقة مع الكرت */
+.stock {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #34d399;
+}
+
+.stock.out {
+  color: #f87171;
+}
+
+/* صندوق السعر */
+.price.big {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.price.big strong {
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.price.big s {
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+/* صندوق الوصف */
+.desc {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+
+.desc h4 {
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  color: #f8fafc;
+}
+
+.desc p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+/* الأزرار لتكون مطابقة لأزرار الكرت (زر أزرق رئيسي وزر إضافي) */
+.detail-btns {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: auto;
+}
+
+.detail-btns .btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.detail-btns .btn.dark {
+  background: #1e293b;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-btns .btn.dark:hover {
+  background: #334155;
+}
+
+.detail-btns .btn:not(.dark) {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.detail-btns .btn:not(.dark):hover {
+  background: #2563eb;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+
+@media (max-width: 720px) {
+  .detail {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----- التعديل المضاف: تنسيق المواصفات الإضافية للدراجة ----- */
+.extra-specs {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* خط فاصل خفيف بلون داكن */
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  padding: 0.2rem 0;
+}
+
+.spec-item strong {
+  color: #f8fafc;
+  font-weight: 700;
+}

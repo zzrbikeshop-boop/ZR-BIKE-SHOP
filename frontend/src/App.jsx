@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AppProvider } from './context/AppContext'
 import Home from './pages/Home'
+import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton';
 import Dashboard from './pages/admin/Dashboard'
 import StairsPreloader from './components/StairsPreloader/StairsPreloader' // 👈 استيراد شاشة الترحيب
 
@@ -18,6 +19,10 @@ export default function App() {
       <StairsPreloader />
       
       {route === '#/admin' ? <Dashboard /> : <Home />}
+      
+      {/* 🟢 زر الواتساب العائم */}
+      <WhatsAppButton />
+      
     </AppProvider>
   )
 }

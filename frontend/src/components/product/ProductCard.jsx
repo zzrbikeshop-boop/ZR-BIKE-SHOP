@@ -11,11 +11,12 @@ export default function ProductCard({ p }) {
   const [i, setI] = useState(0)
   const name = (lang === 'en' && p.name_en) || p.name_ar
   
-  // المنتج يعتبر في التخفيضات إذا تم تفعيل زر التخفيض أو وُجد سعر قديم
-  const onSale = p.is_discounted || (p.old_price && p.old_price > p.price)
+  // التحقق من وجود تخفيض وسعر قديم صالح
+  const hasOldPrice = p.old_price && Number(p.old_price) > Number(p.price)
+  const onSale = p.is_discounted || hasOldPrice
   
-  // إذا كان المنتج في التخفيضات ولم يتم إدخال old_price يدوياً، نقوم بحساب سعر قديم افتراضي (أعلى بنسبة 25% مثلاً)
-  const displayOldPrice = (p.old_price && Number(p.old_price) > Number(p.price)) 
+  // تحديد قيمة السعر القديم
+  const displayOldPrice = hasOldPrice 
     ? Number(p.old_price) 
     : (p.is_discounted ? Math.round(Number(p.price) * 1.25) : null)
 
@@ -23,7 +24,7 @@ export default function ProductCard({ p }) {
   const [L, R] = LAYOUT_DIR === 'rtl' ? ['chevR', 'chevL'] : ['chevL', 'chevR']
   const go = d => setI((i + d + imgs.length) % imgs.length)
 
-  // خاصية التبديل التلقائي بين الصور كل 3 ثوانٍ إذا توفرت أكثر من صورة
+  // خاصية التبديل التلقائي بين الصور كل 3 ثوانٍ
   useEffect(() => {
     if (imgs.length <= 1) return
     const timer = setInterval(() => {
@@ -65,26 +66,30 @@ export default function ProductCard({ p }) {
         
         <div className="card-meta">
           <span className={soldOut ? 'stock out' : 'stock in'}>
-            {soldOut ? t.soldOut : t.inStock}
+            {soldOut ? (t?.soldOut || 'نفذت الكمية') : (t?.inStock || 'متوفر في المخزون')}
           </span>
         </div>
 
         <div className="card-foot">
-          <div className="price-box">
-            <strong className="current-price">{Number(p.price).toLocaleString()} <small>{t.dz}</small></strong>
-            
-            {/* عرض السعر القديم مشطوباً (إما المدخل يدوياً أو المحسوب تلقائياً عند التخفيض) */}
-            {onSale && displayOldPrice && (
-              <s className="old-price">{displayOldPrice.toLocaleString()} {t.dz}</s>
+          {/* ----- التعديل هنا: إجبار السعر القديم على الظهور بشكل واضح ----- */}
+          <div className="price-box" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            {displayOldPrice && (
+              <s className="old-price" style={{ color: '#94a3b8', fontSize: '0.85rem', textDecoration: 'line-through', marginBottom: '2px', display: 'block' }}>
+                {displayOldPrice.toLocaleString()} {t?.dz || 'د.ج'}
+              </s>
             )}
+            <strong className="current-price" style={{ color: '#3b82f6', fontSize: '1.2rem', display: 'block', lineHeight: '1' }}>
+              {Number(p.price).toLocaleString()} <small style={{ fontSize: '0.8rem' }}>{t?.dz || 'د.ج'}</small>
+            </strong>
           </div>
+          {/* ----------------------------------------------------------- */}
 
           <div className="card-btns">
-            <button className="cbtn dark" disabled={soldOut} onClick={e => { e.stopPropagation(); add(p) }} aria-label={t.add}>
+            <button className="cbtn dark" disabled={soldOut} onClick={e => { e.stopPropagation(); add(p) }} aria-label={t?.add || 'إضافة'}>
               <Icon name="bag" size={16} />
             </button>
             <button className="cbtn primary" disabled={soldOut} onClick={e => { e.stopPropagation(); buyNow(p) }}>
-              <Icon name="zap" size={15} /> {t.buy}
+              <Icon name="zap" size={15} /> {t?.buy || 'شراء'}
             </button>
           </div>
         </div>

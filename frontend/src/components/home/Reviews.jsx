@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
+// التعديل هنا: أضفنا ../ أخرى للرجوع خطوتين للخلف والوصول للملف الصحيح
+import { useApp } from '../../context/AppContext'; 
 import './Reviews.css';
 
 export default function Reviews() {
+  const { t, lang } = useApp(); // جلب اللغة الحالية
+
   const reviewImages = [
      "/reviews/in1(1).jpg", "/reviews/in1(2).jpg",
     "/reviews/in1(3).jpg", "/reviews/in1(4).jpg", "/reviews/in1(5).jpg",
@@ -29,10 +33,14 @@ export default function Reviews() {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + reviewImages.length) % reviewImages.length);
   };
 
+  // تحديد النص بناءً على اللغة
+  const reviewsTitle = lang === 'en' ? 'Our Customers Reviews' : 'آراء وثقة عملائنا';
+
   return (
     <section className="reviews-section">
       <div className="section-header">
-        <h2>آراء وثقة عملائنا الكرام</h2>
+        {/* عرض العنوان المتوافق مع اللغة */}
+        <h2>{reviewsTitle}</h2>
       </div>
 
       <div className="coverflow-wrapper">

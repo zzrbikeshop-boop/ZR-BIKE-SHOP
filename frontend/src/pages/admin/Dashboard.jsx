@@ -27,6 +27,7 @@ export default function Dashboard() {
     is_new: true,
     is_discounted: false,
     is_bike: false,
+    color: '',
     bike_brand: '',
     frame_size: '',
     speeds: '',
@@ -121,6 +122,7 @@ export default function Dashboard() {
         is_new: form.is_new,
         is_discounted: form.is_discounted,
         is_bike: form.is_bike,
+        color: form.is_bike ? form.color : null,
         bike_brand: form.is_bike ? form.bike_brand : null,
         frame_size: form.is_bike ? form.frame_size : null,
         speeds: form.is_bike && form.speeds ? Number(form.speeds) : null,
@@ -146,7 +148,7 @@ export default function Dashboard() {
       setForm({ 
         name_ar: '', name_en: '', description: '', price: '', old_price: '', image_url: '', image_urls: [],
         in_stock: true, is_new: true, is_discounted: false, is_bike: false,
-        bike_brand: '', frame_size: '', speeds: '', brake_type: '', frame_type: '', 
+        color: '', bike_brand: '', frame_size: '', speeds: '', brake_type: '', frame_type: '', 
         wheel_size: '', frame_material: '', suspension_type: '', bottom_bracket: '', 
         chain_type: '', saddle_type: '', shifter_type: ''
       })
@@ -169,6 +171,7 @@ export default function Dashboard() {
       ...p,
       image_urls: existingImages,
       is_bike: p.is_bike || false,
+      color: p.color || '',
       bike_brand: p.bike_brand || '',
       frame_size: p.frame_size || '',
       speeds: p.speeds || '',
@@ -234,7 +237,7 @@ export default function Dashboard() {
                 setForm({ 
                   name_ar: '', name_en: '', description: '', price: '', old_price: '', image_url: '', image_urls: [],
                   in_stock: true, is_new: true, is_discounted: false, is_bike: false,
-                  bike_brand: '', frame_size: '', speeds: '', brake_type: '', frame_type: '', 
+                  color: '', bike_brand: '', frame_size: '', speeds: '', brake_type: '', frame_type: '', 
                   wheel_size: '', frame_material: '', suspension_type: '', bottom_bracket: '', 
                   chain_type: '', saddle_type: '', shifter_type: '' 
                 }); 
@@ -351,66 +354,75 @@ export default function Dashboard() {
                     {lang === 'en' ? 'Bike Technical Specifications' : 'المواصفات الفنية للدراجة'}
                   </h4>
                   
+                  {/* ----- تم نقل حقل اللون هنا ليكون أول المواصفات ----- */}
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                    <div className="form-group">
+                      <label>{lang === 'en' ? 'Color' : 'اللون'}</label>
+                      <input placeholder={lang === 'en' ? 'e.g. Black, Red...' : 'مثال: أسود، أحمر...'} value={form.color} onChange={f('color')} />
+                    </div>
                     <div className="form-group">
                       <label>{lang === 'en' ? 'Bike Brand' : 'ماركة الدراجة'}</label>
                       <input placeholder="Trek, Shimano..." value={form.bike_brand} onChange={f('bike_brand')} />
                     </div>
+                  </div>
+                  {/* -------------------------------------------------- */}
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div className="form-group">
                       <label>{lang === 'en' ? 'Frame Size' : 'مقاس الإطار'}</label>
                       <input placeholder="M, L, 21inch..." value={form.frame_size} onChange={f('frame_size')} />
                     </div>
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div className="form-group">
                       <label>{lang === 'en' ? 'Speeds Count' : 'عدد السرعات'}</label>
                       <input type="number" placeholder="21" value={form.speeds} onChange={f('speeds')} />
                     </div>
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div className="form-group">
                       <label>{lang === 'en' ? 'Wheel Size' : 'مقاس العجلات'}</label>
                       <input placeholder="29 inch" value={form.wheel_size} onChange={f('wheel_size')} />
                     </div>
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div className="form-group">
                       <label>{lang === 'en' ? 'Frame Type' : 'نوع الهيكل'}</label>
                       <input placeholder="Mountain / Road" value={form.frame_type} onChange={f('frame_type')} />
                     </div>
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div className="form-group">
                       <label>{lang === 'en' ? 'Frame Material' : 'مادة صنع الهيكل'}</label>
                       <input placeholder="Aluminium / Carbon" value={form.frame_material} onChange={f('frame_material')} />
                     </div>
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div className="form-group">
                       <label>{lang === 'en' ? 'Brake Type' : 'نوع الفرامل'}</label>
                       <input placeholder="Hydraulic Disc" value={form.brake_type} onChange={f('brake_type')} />
                     </div>
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div className="form-group">
                       <label>{lang === 'en' ? 'Suspension Type' : 'نوع المساعدات'}</label>
                       <input placeholder="Dual Suspension" value={form.suspension_type} onChange={f('suspension_type')} />
                     </div>
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div className="form-group">
                       <label>{lang === 'en' ? 'Shifter Type' : 'نوع مغير السرعات'}</label>
                       <input placeholder="Shimano Deore" value={form.shifter_type} onChange={f('shifter_type')} />
                     </div>
-                    <div className="form-group">
-                      <label>{lang === 'en' ? 'Chain Type' : 'نوع السلسلة'}</label>
-                      <input placeholder="KMC X10" value={form.chain_type} onChange={f('chain_type')} />
-                    </div>
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div className="form-group">
+                      <label>{lang === 'en' ? 'Chain Type' : 'نوع السلسلة'}</label>
+                      <input placeholder="KMC X10" value={form.chain_type} onChange={f('chain_type')} />
+                    </div>
+                    <div className="form-group">
                       <label>{lang === 'en' ? 'Saddle Type' : 'نوع المقعد'}</label>
                       <input placeholder="Ergonomic Sport" value={form.saddle_type} onChange={f('saddle_type')} />
                     </div>
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div className="form-group">
                       <label>{lang === 'en' ? 'Bottom Bracket' : 'نوع العلبة'}</label>
                       <input placeholder="Hollowtech II" value={form.bottom_bracket} onChange={f('bottom_bracket')} />
